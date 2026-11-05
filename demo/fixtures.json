@@ -1,0 +1,155 @@
+{
+  "turns": [
+    {
+      "id": "t1",
+      "speaker": "lin",
+      "source": "Hola, ¿cómo estás?",
+      "translation": "Hello, how are you?",
+      "replies": [
+        {
+          "text": "Estoy bien, gracias. ¿Y tú?",
+          "gloss": "I'm well, thank you. And you?",
+          "pronunciation": "ess-TOY bee-en, grah-SEE-ahs. ee TOO"
+        },
+        {
+          "text": "No muy bien hoy.",
+          "gloss": "Not so good today.",
+          "pronunciation": "noh moo-ee bee-en oy"
+        }
+      ],
+      "provenance": {
+        "provider": "Meta",
+        "model": "muse-spark-1.3",
+        "responseId": "resp_6ae22ef2945568356c454e88",
+        "usage": {
+          "input_tokens": 206,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 701,
+          "output_tokens_details": {
+            "reasoning_tokens": 254
+          },
+          "total_tokens": 907
+        }
+      }
+    },
+    {
+      "id": "t2",
+      "speaker": "alex",
+      "source": "I am well, thank you. And you?",
+      "translation": "Estoy bien, gracias. ¿Y tú?",
+      "replies": [],
+      "provenance": {
+        "provider": "Meta",
+        "model": "muse-spark-1.3",
+        "responseId": "resp_6ae22ef2945568356c454e88",
+        "usage": {
+          "input_tokens": 206,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 701,
+          "output_tokens_details": {
+            "reasoning_tokens": 254
+          },
+          "total_tokens": 907
+        }
+      }
+    },
+    {
+      "id": "t3",
+      "speaker": "lin",
+      "source": "Muy bien. ¿Quieres tomar un café?",
+      "translation": "Very well. Do you want to have a coffee?",
+      "replies": [
+        {
+          "text": "Sí, vamos.",
+          "gloss": "Yes, let's go.",
+          "pronunciation": "see, BAH-mohs"
+        },
+        {
+          "text": "No, gracias.",
+          "gloss": "No, thank you.",
+          "pronunciation": "noh, grah-SEE-ahs"
+        }
+      ],
+      "provenance": {
+        "provider": "Meta",
+        "model": "muse-spark-1.3",
+        "responseId": "resp_6ae22ef2945568356c454e88",
+        "usage": {
+          "input_tokens": 206,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 701,
+          "output_tokens_details": {
+            "reasoning_tokens": 254
+          },
+          "total_tokens": 907
+        }
+      }
+    },
+    {
+      "id": "t4",
+      "speaker": "alex",
+      "source": "Yes, I would like a coffee.",
+      "translation": "Sí, quiero un café.",
+      "replies": [],
+      "provenance": {
+        "provider": "Meta",
+        "model": "muse-spark-1.3",
+        "responseId": "resp_6ae22ef2945568356c454e88",
+        "usage": {
+          "input_tokens": 206,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 701,
+          "output_tokens_details": {
+            "reasoning_tokens": 254
+          },
+          "total_tokens": 907
+        }
+      }
+    },
+    {
+      "id": "t5",
+      "speaker": "lin",
+      "source": "Perfecto, vamos.",
+      "translation": "Perfect, let's go.",
+      "replies": [
+        {
+          "text": "Sí, vamos ahora.",
+          "gloss": "Yes, let's go now.",
+          "pronunciation": "see, BAH-mohs ah-OH-rah"
+        },
+        {
+          "text": "Espera un momento.",
+          "gloss": "Wait a moment.",
+          "pronunciation": "ess-PEH-rah oon moh-MEHN-toh"
+        }
+      ],
+      "provenance": {
+        "provider": "Meta",
+        "model": "muse-spark-1.3",
+        "responseId": "resp_6ae22ef2945568356c454e88",
+        "usage": {
+          "input_tokens": 206,
+          "input_tokens_details": {
+            "cached_tokens": 0
+          },
+          "output_tokens": 701,
+          "output_tokens_details": {
+            "reasoning_tokens": 254
+          },
+          "total_tokens": 907
+        }
+      }
+    }
+  ],
+  "generatedAt": "2026-10-28T17:20:50.759604+00:00",
+  "mode": "Meta-generated Spanish synthetic fixture replay",
+  "language": "es"
+}

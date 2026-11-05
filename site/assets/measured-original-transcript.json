@@ -1,0 +1,977 @@
+{
+  "duration": 65.73333333333333,
+  "events": [
+    {
+      "at": 1.3042,
+      "turn": {
+        "source": "Hola,",
+        "translation": "",
+        "replies": [],
+        "revision": 1,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 1.6778,
+      "turn": {
+        "source": "Hola, ¿cómo",
+        "translation": "",
+        "replies": [],
+        "revision": 2,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 1.987,
+      "turn": {
+        "source": "Hola, ¿cómo estás?",
+        "translation": "",
+        "replies": [],
+        "revision": 3,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 2.7203,
+      "turn": {
+        "source": "Hola, ¿cómo estás? es",
+        "translation": "",
+        "replies": [],
+        "revision": 4,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 2.8778,
+      "turn": {
+        "source": "Hola, ¿cómo estás? es tu",
+        "translation": "",
+        "replies": [],
+        "revision": 5,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 3.1831,
+      "turn": {
+        "source": "Hola, ¿cómo estás? es tu primera",
+        "translation": "",
+        "replies": [],
+        "revision": 6,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 3.7908,
+      "turn": {
+        "source": "Hola, ¿cómo estás? es tu primera vez",
+        "translation": "",
+        "replies": [],
+        "revision": 7,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 3.9007,
+      "turn": {
+        "source": "Hola, ¿cómo estás? es tu primera vez en",
+        "translation": "",
+        "replies": [],
+        "revision": 8,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 4.2763,
+      "turn": {
+        "source": "Hola, ¿cómo estás? es tu primera vez en Madrid",
+        "translation": "",
+        "replies": [],
+        "revision": 9,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 4.2763,
+      "turn": {
+        "source": "Hola, ¿cómo estás? es tu primera vez en Madrid",
+        "translation": "",
+        "replies": [],
+        "revision": 10,
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 9.0414,
+      "turn": {
+        "source": "Hola, ¿cómo estás? es tu primera vez en Madrid",
+        "translation": "Hello, how are you? Is this your first time in Madrid?",
+        "replies": [
+          {
+            "text": "Estoy bien, sí, es mi primera vez.",
+            "gloss": "I'm well, yes, it's my first time."
+          },
+          {
+            "text": "Estoy muy bien, no, ya había venido antes.",
+            "gloss": "I'm very well, no, I had already come before."
+          }
+        ],
+        "revision": 10,
+        "sourceLanguage": "es",
+        "id": "audio-0-0",
+        "speaker": "lin"
+      },
+      "final": true
+    },
+    {
+      "at": 10.1667,
+      "turn": {
+        "source": "Estoy",
+        "translation": "",
+        "replies": [],
+        "revision": 1,
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 10.6753,
+      "turn": {
+        "source": "Estoy bien.",
+        "translation": "",
+        "replies": [],
+        "revision": 2,
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 10.7837,
+      "turn": {
+        "source": "Estoy bien. Sí,",
+        "translation": "",
+        "replies": [],
+        "revision": 3,
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 11.4682,
+      "turn": {
+        "source": "Estoy bien. Sí, es",
+        "translation": "",
+        "replies": [],
+        "revision": 4,
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 11.5236,
+      "turn": {
+        "source": "Estoy bien. Sí, es mi",
+        "translation": "",
+        "replies": [],
+        "revision": 5,
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 11.8551,
+      "turn": {
+        "source": "Estoy bien. Sí, es mi primera",
+        "translation": "",
+        "replies": [],
+        "revision": 6,
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 12.1234,
+      "turn": {
+        "source": "Estoy bien. Sí, es mi primera vez.",
+        "translation": "",
+        "replies": [],
+        "revision": 7,
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 12.2879,
+      "turn": {
+        "source": "Estoy bien. Sí, es mi primera vez.",
+        "translation": "",
+        "replies": [],
+        "revision": 8,
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 18.0069,
+      "turn": {
+        "source": "Estoy bien. Sí, es mi primera vez.",
+        "translation": "I'm well. Yes, it's my first time.",
+        "replies": [],
+        "revision": 8,
+        "sourceLanguage": "es",
+        "id": "audio-1-0",
+        "speaker": "alex"
+      },
+      "final": true
+    },
+    {
+      "at": 19.3137,
+      "turn": {
+        "source": "Qué bien,",
+        "translation": "",
+        "replies": [],
+        "revision": 1,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 20.0364,
+      "turn": {
+        "source": "Qué bien, hay una",
+        "translation": "",
+        "replies": [],
+        "revision": 2,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 20.8496,
+      "turn": {
+        "source": "Qué bien, hay una cafetería",
+        "translation": "",
+        "replies": [],
+        "revision": 3,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 21.0638,
+      "turn": {
+        "source": "Qué bien, hay una cafetería muy",
+        "translation": "",
+        "replies": [],
+        "revision": 4,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 21.3572,
+      "turn": {
+        "source": "Qué bien, hay una cafetería muy buena en",
+        "translation": "",
+        "replies": [],
+        "revision": 5,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 21.7425,
+      "turn": {
+        "source": "Qué bien, hay una cafetería muy buena en la",
+        "translation": "",
+        "replies": [],
+        "revision": 6,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 22.2362,
+      "turn": {
+        "source": "Qué bien, hay una cafetería muy buena en la esquina.",
+        "translation": "",
+        "replies": [],
+        "revision": 7,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 22.7738,
+      "turn": {
+        "source": "Qué bien, hay una cafetería muy buena en la esquina. ¿Quieres ir",
+        "translation": "",
+        "replies": [],
+        "revision": 8,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 23.6966,
+      "turn": {
+        "source": "Qué bien, hay una cafetería muy buena en la esquina. ¿Quieres ir conmigo?",
+        "translation": "",
+        "replies": [],
+        "revision": 9,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 23.6967,
+      "turn": {
+        "source": "Qué bien, hay una cafetería muy buena en la esquina. ¿Quieres ir conmigo?",
+        "translation": "",
+        "replies": [],
+        "revision": 10,
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 28.5204,
+      "turn": {
+        "source": "Qué bien, hay una cafetería muy buena en la esquina. ¿Quieres ir conmigo?",
+        "translation": "That's great, there's a very good café on the corner. Do you want to go with me?",
+        "replies": [
+          {
+            "text": "Sí, me encantaría ir contigo.",
+            "gloss": "Yes, I'd love to go with you."
+          },
+          {
+            "text": "No, gracias, tengo otros planes ahora.",
+            "gloss": "No, thanks, I have other plans now."
+          }
+        ],
+        "revision": 10,
+        "sourceLanguage": "es",
+        "id": "audio-2-0",
+        "speaker": "lin"
+      },
+      "final": true
+    },
+    {
+      "at": 29.7647,
+      "turn": {
+        "source": "sorry,",
+        "translation": "",
+        "replies": [],
+        "revision": 1,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 30.1279,
+      "turn": {
+        "source": "sorry, I",
+        "translation": "",
+        "replies": [],
+        "revision": 2,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 30.4278,
+      "turn": {
+        "source": "sorry, I don't",
+        "translation": "",
+        "replies": [],
+        "revision": 3,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 30.9493,
+      "turn": {
+        "source": "sorry, I don't know how",
+        "translation": "",
+        "replies": [],
+        "revision": 4,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 31.0226,
+      "turn": {
+        "source": "sorry, I don't know how to",
+        "translation": "",
+        "replies": [],
+        "revision": 5,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 31.5326,
+      "turn": {
+        "source": "sorry, I don't know how to say this",
+        "translation": "",
+        "replies": [],
+        "revision": 6,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 31.9298,
+      "turn": {
+        "source": "sorry, I don't know how to say this in",
+        "translation": "",
+        "replies": [],
+        "revision": 7,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 32.7542,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish,",
+        "translation": "",
+        "replies": [],
+        "revision": 8,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 33.0268,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but",
+        "translation": "",
+        "replies": [],
+        "revision": 9,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 33.1088,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm",
+        "translation": "",
+        "replies": [],
+        "revision": 10,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 33.2354,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic",
+        "translation": "",
+        "replies": [],
+        "revision": 11,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 33.5084,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic to",
+        "translation": "",
+        "replies": [],
+        "revision": 12,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 34.0294,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic to milk.",
+        "translation": "",
+        "replies": [],
+        "revision": 13,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 34.4283,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic to milk. Do they",
+        "translation": "",
+        "replies": [],
+        "revision": 14,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 34.9379,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic to milk. Do they have",
+        "translation": "",
+        "replies": [],
+        "revision": 15,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 35.3118,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic to milk. Do they have oat",
+        "translation": "",
+        "replies": [],
+        "revision": 16,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 35.3687,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic to milk. Do they have oat milk?",
+        "translation": "",
+        "replies": [],
+        "revision": 17,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 35.3688,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic to milk. Do they have oat milk?",
+        "translation": "",
+        "replies": [],
+        "revision": 18,
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 41.9478,
+      "turn": {
+        "source": "sorry, I don't know how to say this in Spanish, but I'm allergic to milk. Do they have oat milk?",
+        "translation": "Perdón, no sé cómo decir esto en español, pero tengo alergia a la leche. ¿Tienen leche de avena?",
+        "replies": [],
+        "revision": 18,
+        "sourceLanguage": "en",
+        "id": "audio-3-0",
+        "speaker": "alex"
+      },
+      "final": true
+    },
+    {
+      "at": 43.8746,
+      "turn": {
+        "source": "Sí,",
+        "translation": "",
+        "replies": [],
+        "revision": 1,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 43.9842,
+      "turn": {
+        "source": "Sí, tienen",
+        "translation": "",
+        "replies": [],
+        "revision": 2,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 44.272,
+      "turn": {
+        "source": "Sí, tienen leche",
+        "translation": "",
+        "replies": [],
+        "revision": 3,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 44.4084,
+      "turn": {
+        "source": "Sí, tienen leche de",
+        "translation": "",
+        "replies": [],
+        "revision": 4,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 44.8032,
+      "turn": {
+        "source": "Sí, tienen leche de avena.",
+        "translation": "",
+        "replies": [],
+        "revision": 5,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 45.9388,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También",
+        "translation": "",
+        "replies": [],
+        "revision": 6,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 46.3252,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También podemos",
+        "translation": "",
+        "replies": [],
+        "revision": 7,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 46.5677,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También podemos preguntar",
+        "translation": "",
+        "replies": [],
+        "revision": 8,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 46.7426,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También podemos preguntar por",
+        "translation": "",
+        "replies": [],
+        "revision": 9,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 47.2267,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También podemos preguntar por las",
+        "translation": "",
+        "replies": [],
+        "revision": 10,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 47.737,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También podemos preguntar por las alergias.",
+        "translation": "",
+        "replies": [],
+        "revision": 11,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 48.4818,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También podemos preguntar por las alergias. Vamos.",
+        "translation": "",
+        "replies": [],
+        "revision": 12,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 48.4819,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También podemos preguntar por las alergias. Vamos.",
+        "translation": "",
+        "replies": [],
+        "revision": 13,
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": false
+    },
+    {
+      "at": 54.6976,
+      "turn": {
+        "source": "Sí, tienen leche de avena. También podemos preguntar por las alergias. Vamos.",
+        "translation": "Yes, they have oat milk. We can also ask about allergies. Let's go.",
+        "replies": [
+          {
+            "text": "Genial, vamos. Muchas gracias por tu ayuda.",
+            "gloss": "Great, let's go. Thank you very much for your help."
+          },
+          {
+            "text": "Suena bien, pero prefiero revisar el menú primero.",
+            "gloss": "Sounds good, but I prefer to check the menu first."
+          }
+        ],
+        "revision": 13,
+        "sourceLanguage": "es",
+        "id": "audio-4-0",
+        "speaker": "lin"
+      },
+      "final": true
+    },
+    {
+      "at": 56.4929,
+      "turn": {
+        "source": "Genial,",
+        "translation": "",
+        "replies": [],
+        "revision": 1,
+        "id": "audio-5-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 56.7955,
+      "turn": {
+        "source": "Genial, vamos.",
+        "translation": "",
+        "replies": [],
+        "revision": 2,
+        "id": "audio-5-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 57.7378,
+      "turn": {
+        "source": "Genial, vamos. Muchas",
+        "translation": "",
+        "replies": [],
+        "revision": 3,
+        "id": "audio-5-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 57.9095,
+      "turn": {
+        "source": "Genial, vamos. Muchas gracias",
+        "translation": "",
+        "replies": [],
+        "revision": 4,
+        "id": "audio-5-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 59.6024,
+      "turn": {
+        "source": "Genial, vamos. Muchas gracias por",
+        "translation": "",
+        "replies": [],
+        "revision": 5,
+        "id": "audio-5-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 59.6024,
+      "turn": {
+        "source": "Genial, vamos. Muchas gracias por tu ayuda.",
+        "translation": "",
+        "replies": [],
+        "revision": 6,
+        "id": "audio-5-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 59.6025,
+      "turn": {
+        "source": "Genial, vamos. Muchas gracias por tu ayuda.",
+        "translation": "",
+        "replies": [],
+        "revision": 7,
+        "id": "audio-5-0",
+        "speaker": "alex"
+      },
+      "final": false
+    },
+    {
+      "at": 65.7071,
+      "turn": {
+        "source": "Genial, vamos. Muchas gracias por tu ayuda.",
+        "translation": "Great, let's go. Thank you very much for your help.",
+        "replies": [],
+        "revision": 7,
+        "sourceLanguage": "es",
+        "id": "audio-5-0",
+        "speaker": "alex"
+      },
+      "final": true
+    }
+  ],
+  "segments": [
+    {
+      "index": 0,
+      "speaker": "guest",
+      "start": 0.0,
+      "end": 9.066666666666666,
+      "sourceStart": 1.0,
+      "speechEnd": 3.59675,
+      "firstPartial": 1.3041927920421585,
+      "resultAt": 9.041402249946259,
+      "latency": 5.444652249946259,
+      "text": "Hola, ¿cómo estás? ¿Es tu primera vez en Madrid?"
+    },
+    {
+      "index": 1,
+      "speaker": "host",
+      "start": 9.066666666666666,
+      "end": 18.03333333333333,
+      "sourceStart": 14.041375,
+      "speechEnd": 11.701458333333333,
+      "firstPartial": 10.166703374722662,
+      "resultAt": 18.006936166683833,
+      "latency": 6.3054778333504995,
+      "text": "Estoy bien, sí, es mi primera vez."
+    },
+    {
+      "index": 2,
+      "speaker": "guest",
+      "start": 18.03333333333333,
+      "end": 28.53333333333333,
+      "sourceStart": 26.981625,
+      "speechEnd": 22.83470833333333,
+      "firstPartial": 19.313660291264142,
+      "resultAt": 28.52040479123437,
+      "latency": 5.685696457901038,
+      "text": "Qué bien. Hay una cafetería muy buena en la esquina. ¿Quieres ir conmigo?"
+    },
+    {
+      "index": 3,
+      "speaker": "host",
+      "start": 28.53333333333333,
+      "end": 41.96666666666667,
+      "sourceStart": 41.468666666666664,
+      "speechEnd": 34.80358333333333,
+      "firstPartial": 29.76463258337074,
+      "resultAt": 41.94779391727255,
+      "latency": 7.144210583939217,
+      "text": "Sorry, I don't know how to say this in Spanish, but I'm allergic to milk. Do they have oat milk?"
+    },
+    {
+      "index": 4,
+      "speaker": "guest",
+      "start": 41.96666666666667,
+      "end": 54.7,
+      "sourceStart": 58.883125,
+      "speechEnd": 47.861625000000004,
+      "firstPartial": 43.87459645873557,
+      "resultAt": 54.697640500722144,
+      "latency": 6.836015500722143,
+      "text": "Sí, tienen leche de avena. También podemos preguntar por las alergias. ¿Vamos?"
+    },
+    {
+      "index": 5,
+      "speaker": "host",
+      "start": 54.7,
+      "end": 65.73333333333333,
+      "sourceStart": 75.61408333333334,
+      "speechEnd": 57.95929166666667,
+      "firstPartial": 56.492879333952445,
+      "resultAt": 65.7071507919347,
+      "latency": 7.747859125268025,
+      "text": "Genial, vamos. Muchas gracias por tu ayuda."
+    }
+  ],
+  "disclosure": "Recorded API timing from provider readiness. Four-second presentation gaps and opening/end padding removed. Connection and speech synthesis setup excluded. Up to one frame rounding per turn. Not a live API call or hardware recording."
+}

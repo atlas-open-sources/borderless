@@ -1,0 +1,8 @@
+# gitleaks: the default rules, plus the one false positive this repository is known to carry.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "localStorage key names in the vendored plugin core, not secrets"
+regexTarget = "match"
+regexes = ['''KEY = 'even-companion\.mic-policy\.v1''']

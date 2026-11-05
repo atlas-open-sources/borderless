@@ -1,0 +1,36 @@
+# TLS terminates here (automatic certificate for BORDERLESS_HOST). The relay listens plain on the
+# private Docker network. No access log: the relay's own log holds counters only.
+{
+	admin off
+}
+
+{$BORDERLESS_HOST} {
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		-Server
+	}
+
+	# Caddy replaces X-Forwarded-For with the peer address (no trusted proxies configured).
+	@relay path /live /health
+	handle @relay {
+		reverse_proxy relay:8080
+	}
+
+	handle /.well-known/apple-app-site-association {
+		root * /srv
+		header Content-Type application/json
+		file_server
+	}
+
+	handle /privacy {
+		root * /srv
+		rewrite * /privacy.html
+		file_server
+	}
+
+	handle {
+		respond "Not found" 404
+	}
+}

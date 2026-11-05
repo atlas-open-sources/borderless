@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["599WAZ6282.ai.atlascodes.borderless"],
+        "components": [{ "/": "/meta-callback/*", "comment": "Meta Wearables registration callback" }]
+      },
+      {
+        "appID": "599WAZ6282.ai.atlascodes.borderless",
+        "paths": ["/meta-callback/*"]
+      }
+    ]
+  }
+}

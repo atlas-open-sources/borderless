@@ -1,0 +1,23 @@
+{
+  "originHash" : "07d9082b29c6ac43554ce6ae2d3157d883b992863bbecbcb70ae9b6bbadebc57",
+  "pins" : [
+    {
+      "identity" : "even-companion",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/local-ai-cat/even-companion.git",
+      "state" : {
+        "revision" : "527efbf4cb9c30c510640c919415125d98eb7cf5"
+      }
+    },
+    {
+      "identity" : "meta-wearables-dat-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/facebook/meta-wearables-dat-ios",
+      "state" : {
+        "revision" : "1f38beecba83c4c8b5e343540f9cd615323ab19a",
+        "version" : "1.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}

@@ -1,0 +1,6 @@
+// Copy to Meta.local.xcconfig (git-ignored) for builds that testers outside Meta's Developer Mode use.
+// Values: Wearables Developer Center → Borderless → App configuration.
+META_APP_ID = <app id>
+META_CLIENT_TOKEN = <client token>
+// The HTTPS universal link registered in the console; "//" needs the $() break inside an xcconfig.
+BORDERLESS_APP_LINK = https:/$()/borderless.3-214-86-61.sslip.io/meta-callback

@@ -1,0 +1,39 @@
+.env
+.env.*
+!.env.example
+!.env.op
+
+# Spend ledger, relay token, tailnet TLS. Never commit, never reset the ledger (AGENTS.md).
+.budget/
+__pycache__/
+
+# Meta app id and client token for distributed builds (Ghost Runner's pattern).
+native/BorderlessApp/Config/Meta.local.xcconfig
+native/BorderlessApp/Config/Relay.local.xcconfig
+
+# Build output
+.build/
+.swiftpm/
+DerivedData/
+build.noindex/
+*.xcresult
+xcuserdata/
+fastlane/report.xml
+fastlane/README.md
+fastlane/test_output/
+*.ipa
+*.dSYM.zip
+
+# G2 microapp
+node_modules/
+/glasses-plugin/dist/
+/glasses-plugin/*.ehpk
+
+.DS_Store
+
+# Session ledgers written by the project-output hook when an agent runs here
+/sessions/
+
+# the owner's Beta App Review contact and feedback address: filled locally, never committed
+native/BorderlessApp/fastlane/beta/review_contact_*.txt
+native/BorderlessApp/fastlane/beta/feedback_email.txt

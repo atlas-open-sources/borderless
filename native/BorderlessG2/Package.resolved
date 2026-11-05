@@ -1,0 +1,23 @@
+{
+  "originHash" : "8c8279161af5bc104b195fdec0403124b8f77f2cc74f5ebcf371c9f1ad3c6e06",
+  "pins" : [
+    {
+      "identity" : "even-companion",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/local-ai-cat/even-companion.git",
+      "state" : {
+        "revision" : "527efbf4cb9c30c510640c919415125d98eb7cf5"
+      }
+    },
+    {
+      "identity" : "swifter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/httpswift/swifter",
+      "state" : {
+        "revision" : "9483a5d459b45c3ffd059f7b55f9638e268632fd",
+        "version" : "1.5.0"
+      }
+    }
+  ],
+  "version" : 3
+}

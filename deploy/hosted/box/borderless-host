@@ -1,0 +1,208 @@
+#!/usr/bin/env bash
+# Runs as root on the Borderless relay box (Amazon Linux 2023), through SSM Run Command.
+#
+#   borderless-host deploy <release dir> <sha> <host> <prior nanodollars> <release client key>
+#   borderless-host secrets          render SSM SecureStrings into tmpfs, restart the relay
+#   borderless-host pause|resume     kill switch: refuse / allow new paid sessions (no restart)
+#   borderless-host limit NAME VALUE set BORDERLESS_LIMIT_<NAME> (integer) and restart the relay
+#   borderless-host status
+#
+# Never prints a secret: the Meta key moves from `aws ssm` straight into a 0400 file. The release
+# client key ships inside the app, so it is plain config in relay.env (0600).
+set -euo pipefail
+
+readonly REGION=us-east-1
+readonly SSM_PREFIX=/borderless/prod
+readonly SECRET_NAMES=(META_API_KEY)
+readonly SECRETS_DIR=/run/borderless
+readonly CONTROL_DIR=/var/lib/borderless/control
+readonly CONFIG_DIR=/etc/borderless
+readonly RELAY_ENV=/etc/borderless/relay.env
+readonly CURRENT=/opt/borderless/current
+readonly NETWORK=borderless
+readonly RELAY=borderless-relay
+readonly CADDY=borderless-caddy
+readonly CADDY_IMAGE=caddy:2
+readonly RELAY_UID=10001
+readonly HEALTH_TRIES=40
+readonly HEALTH_DELAY_SECONDS=3
+
+log() { printf '==> %s\n' "$*"; }
+die() { printf 'borderless-host: %s\n' "$*" >&2; exit 1; }
+
+render_secrets() {
+  install -d -m 0500 -o "$RELAY_UID" "$SECRETS_DIR"
+  local name target
+  for name in "${SECRET_NAMES[@]}"; do
+    target="$SECRETS_DIR/$name"
+    if (umask 077; aws ssm get-parameter --region "$REGION" --name "$SSM_PREFIX/$name" --with-decryption \
+          --query Parameter.Value --output text > "$target.new" 2>/dev/null); then
+      chown "$RELAY_UID" "$target.new"
+      chmod 0400 "$target.new"
+      mv -f "$target.new" "$target"
+      log "secret $name: present"
+    else
+      rm -f "$target.new" "$target"
+      log "secret $name: not in SSM yet"
+    fi
+  done
+}
+
+run_relay() {
+  local sha=$1
+  docker rm -f "$RELAY" >/dev/null 2>&1 || true
+  docker run -d --name "$RELAY" --network "$NETWORK" --network-alias relay \
+    --restart unless-stopped --env-file "$RELAY_ENV" \
+    -v borderless-data:/data \
+    -v "$SECRETS_DIR":/run/borderless:ro \
+    -v "$CONTROL_DIR":/control:ro \
+    --read-only --tmpfs /tmp:size=16m \
+    --cap-drop ALL --security-opt no-new-privileges \
+    --memory 256m --pids-limit 128 \
+    --log-opt max-size=10m --log-opt max-file=5 \
+    "$RELAY:$sha" >/dev/null
+}
+
+run_caddy() {
+  local host=$1
+  docker rm -f "$CADDY" >/dev/null 2>&1 || true
+  docker run -d --name "$CADDY" --network "$NETWORK" --restart unless-stopped \
+    -p 80:80 -p 443:443 \
+    -e BORDERLESS_HOST="$host" \
+    -v "$CURRENT/deploy/hosted/Caddyfile":/etc/caddy/Caddyfile:ro \
+    -v "$CURRENT/deploy/hosted/www":/srv:ro \
+    -v borderless-caddy-data:/data -v borderless-caddy-config:/config \
+    --memory 128m --log-opt max-size=10m --log-opt max-file=3 \
+    "$CADDY_IMAGE" >/dev/null
+}
+
+wait_healthy() {
+  local host=$1 attempt
+  for ((attempt = 1; attempt <= HEALTH_TRIES; attempt++)); do
+    if curl -fsS --max-time 5 "https://$host/health" >/dev/null 2>&1; then
+      log "https://$host/health answers 200"
+      curl -fsS --max-time 5 "https://$host/health"
+      return 0
+    fi
+    sleep "$HEALTH_DELAY_SECONDS"
+  done
+  docker logs --tail 40 "$RELAY" 2>&1 || true
+  docker logs --tail 40 "$CADDY" 2>&1 || true
+  die "https://$host/health did not answer 200"
+}
+
+write_env() {
+  local prior=$1 key=$2
+  install -d -m 0755 "$CONFIG_DIR"
+  touch "$RELAY_ENV"
+  local kept
+  kept=$(grep '^BORDERLESS_LIMIT_' "$RELAY_ENV" || true)
+  (
+    umask 077
+    printf 'BORDERLESS_PRIOR_NANODOLLARS=%s\n' "$prior"
+    printf 'BORDERLESS_RELAY_TOKEN=%s\n' "$key"
+    # An if, not `[[ … ]] &&`: with no kept limits the && form makes the subshell exit 1 under set -e.
+    if [[ -n "$kept" ]]; then
+      printf '%s\n' "$kept"
+    fi
+  ) > "$RELAY_ENV.new"
+  chmod 0600 "$RELAY_ENV.new"
+  mv -f "$RELAY_ENV.new" "$RELAY_ENV"
+}
+
+install_self() {
+  local release=$1
+  install -m 0755 "$release/deploy/hosted/box/borderless-host" /usr/local/sbin/borderless-host
+  cat > /etc/systemd/system/borderless-secrets.service <<'UNIT'
+[Unit]
+Description=Render Borderless relay secrets from SSM into tmpfs
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/borderless-host secrets
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+  systemctl daemon-reload
+  systemctl enable borderless-secrets.service >/dev/null 2>&1
+}
+
+deploy() {
+  local release=$1 sha=$2 host=$3 prior=$4 key=$5
+  [[ -d "$release/deploy/hosted" ]] || die "no release at $release"
+  [[ "$sha" =~ ^[0-9a-f]{40}$ ]] || die "bad sha"
+  [[ "$host" =~ ^[a-z0-9.-]+$ ]] || die "bad host"
+  [[ "$prior" =~ ^[0-9]+$ ]] || die "bad prior"
+  [[ "$key" =~ ^[A-Za-z0-9_-]{32,256}$ ]] || die "bad release client key"
+  install_self "$release"
+  if [[ ! -d "$CONTROL_DIR" ]]; then
+    install -d -m 0755 "$CONTROL_DIR"
+    touch "$CONTROL_DIR/paused"
+    log "first install: kill switch ON (paused) until 'resume'"
+  fi
+  write_env "$prior" "$key"
+  printf '%s\n' "$host" > "$CONFIG_DIR/host"
+  ln -sfn "$release" "$CURRENT"
+  docker network inspect "$NETWORK" >/dev/null 2>&1 || docker network create "$NETWORK" >/dev/null
+  log "building $RELAY:$sha on the box"
+  docker build --quiet -t "$RELAY:$sha" -f "$release/deploy/hosted/Dockerfile" "$release" >/dev/null
+  render_secrets
+  run_relay "$sha"
+  run_caddy "$host"
+  printf '%s\n' "$sha" > "$CONFIG_DIR/sha"
+  wait_healthy "$host"
+  docker image prune -f >/dev/null 2>&1 || true
+}
+
+restart_relay() {
+  local sha
+  sha=$(cat "$CONFIG_DIR/sha" 2>/dev/null) || die "not deployed yet"
+  run_relay "$sha"
+  log "relay restarted ($sha)"
+}
+
+command=${1:-status}
+case "$command" in
+  deploy)
+    (( $# == 6 )) || die "usage: deploy <release dir> <sha> <host> <prior nanodollars> <release client key>"
+    deploy "$2" "$3" "$4" "$5" "$6"
+    ;;
+  secrets)
+    render_secrets
+    if docker inspect "$RELAY" >/dev/null 2>&1; then
+      restart_relay
+    fi
+    ;;
+  pause)
+    install -d -m 0755 "$CONTROL_DIR"
+    touch "$CONTROL_DIR/paused"
+    log "paused: new paid sessions are refused"
+    ;;
+  resume)
+    rm -f "$CONTROL_DIR/paused"
+    log "resumed: new paid sessions are admitted under the limits"
+    ;;
+  limit)
+    (( $# == 3 )) || die "usage: limit NAME VALUE"
+    [[ "$2" =~ ^[A-Z_]+$ && "$3" =~ ^[0-9]+$ ]] || die "NAME must be A-Z_, VALUE an integer"
+    grep -v "^BORDERLESS_LIMIT_$2=" "$RELAY_ENV" > "$RELAY_ENV.new" || true
+    printf 'BORDERLESS_LIMIT_%s=%s\n' "$2" "$3" >> "$RELAY_ENV.new"
+    mv -f "$RELAY_ENV.new" "$RELAY_ENV"
+    restart_relay
+    ;;
+  status)
+    printf 'sha: %s\nhost: %s\n' "$(cat "$CONFIG_DIR/sha" 2>/dev/null)" "$(cat "$CONFIG_DIR/host" 2>/dev/null)"
+    [[ -e "$CONTROL_DIR/paused" ]] && echo "kill switch: PAUSED" || echo "kill switch: open"
+    grep '^BORDERLESS_' "$RELAY_ENV" 2>/dev/null | grep -v '^BORDERLESS_RELAY_TOKEN=' || true
+    docker ps --filter "name=borderless-" --format '{{.Names}} {{.Status}}'
+    curl -fsS --max-time 5 "https://$(cat "$CONFIG_DIR/host")/health" || echo "health: unreachable"
+    docker logs --since 24h "$RELAY" 2>&1 | grep -c '"event":"session"' | sed 's/^/sessions in 24h: /' || true
+    ;;
+  *)
+    die "unknown command $command"
+    ;;
+esac

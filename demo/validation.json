@@ -1,0 +1,81 @@
+{
+  "checkedAt": "2026-10-28T16:20:45.545Z",
+  "evidence": "simulation contract checks",
+  "checks": [
+    {
+      "name": "Both participants must consent",
+      "pass": true
+    },
+    {
+      "name": "Consent withdrawal clears the session",
+      "pass": true
+    },
+    {
+      "name": "Mandarin reaches English wearer",
+      "pass": true
+    },
+    {
+      "name": "English reaches Mandarin wearer",
+      "pass": true
+    },
+    {
+      "name": "Own speech is not presented as incoming translation",
+      "pass": true
+    },
+    {
+      "name": "Duplicate final turn is rejected",
+      "pass": true
+    },
+    {
+      "name": "Stop clears both wearer views",
+      "pass": true
+    },
+    {
+      "name": "Late result after stop is rejected",
+      "pass": true
+    },
+    {
+      "name": "Disconnected display receives no transcript",
+      "pass": true
+    },
+    {
+      "name": "Reconnect restores latest allowed view",
+      "pass": true
+    },
+    {
+      "name": "Revision invalidates reply selection",
+      "pass": true
+    },
+    {
+      "name": "Device swap preserves conversation semantics",
+      "pass": true
+    },
+    {
+      "name": "Reply selection never creates a sent utterance",
+      "pass": true
+    }
+  ],
+  "metaFixtureGeneration": true,
+  "asrValidated": false,
+  "hardwareValidated": false,
+  "browserChecks": [
+    "desktop join and translated turn",
+    "reply selection and pinyin cue",
+    "automatic five-turn completion",
+    "390px mobile screenshot inspected",
+    "browser benchmark 13/13"
+  ],
+  "securityChecks": [
+    "preview denies .env",
+    "preview denies ledger",
+    "preview denies parent traversal",
+    "preview denies tooling source"
+  ],
+  "limitations": [
+    "Not a native multi-glasses package integration",
+    "Not optical capture",
+    "No real microphone or voiceprint pipeline",
+    "No measured physical-device latency",
+    "No published repository or submitted video"
+  ]
+}

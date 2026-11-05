@@ -1,0 +1,77 @@
+/* The illustration and overlays share the recorded conversation clock. */
+.conversation-scene{isolation:isolate;min-width:0}
+.experience-player .conversation-scene{padding:24px 28px 0}
+.cs-art{max-width:1000px;margin:auto;min-width:0}
+.cs-bubble{position:relative;width:76%;min-height:134px;margin:0 0 24px auto;padding:20px 24px;border:1px solid #cddfcf;border-radius:22px 22px 5px 22px;background:#e9f1e7;color:#153e2b;box-shadow:0 8px 24px #28463108}
+.cs-bubble:after{content:"";position:absolute;bottom:-12px;right:24%;width:20px;height:20px;background:inherit;transform:rotate(45deg);border-bottom:1px solid #cddfcf;border-right:1px solid #cddfcf}
+[data-speaker="host"] .cs-bubble{margin-left:0;margin-right:auto;background:#e9effc;border-color:#d1dcf2;color:#183e81;border-radius:22px 22px 22px 5px}
+[data-speaker="host"] .cs-bubble:after{right:auto;left:24%;border-color:#d1dcf2}
+.cs-bubble-person{font-size:11px;font-weight:650;display:block;margin-bottom:8px}
+.cs-bubble-source{font-size:clamp(17px,1.6vw,23px);line-height:1.35;margin:0;font-weight:600;letter-spacing:-.025em}
+.cs-bubble-translation{font-size:14px;line-height:1.45;margin:8px 0 0;color:#526258}
+.cs-bubble-translation:empty,.cs-bubble-note:empty{display:none}
+.cs-bubble-note{display:block;font-size:11px;margin-top:8px;opacity:.75}
+.cs-cinema{position:relative;overflow:hidden;border-radius:20px;background:#e8dac5;aspect-ratio:3/2;box-shadow:0 12px 36px #3b2b1712}
+.cs-illustration{display:block;width:100%;height:100%;object-fit:cover}
+.cs-cinema:after{content:"";position:absolute;inset:68% 0 0;background:linear-gradient(transparent,#201b14a8);pointer-events:none}
+.cs-wearer-labels{position:absolute;z-index:2;bottom:28px;left:5%;right:5%;display:flex;justify-content:space-between;gap:20px;color:#fff;font-size:17px;font-weight:650;text-shadow:0 1px 8px #0005}
+.cs-wearer-labels>span{border-left:3px solid #8eb6ff;padding-left:12px}.cs-wearer-labels>span:last-child{border-color:#a6d4a1;text-align:right;border-left:0;border-right:3px solid #a6d4a1;padding:0 12px 0 0}
+.cs-wearer-labels small{display:block;font-size:11px;font-weight:400;margin-top:4px;color:#fffc}
+.cs-art-caption{position:absolute;z-index:2;bottom:8px;left:0;right:0;text-align:center;font-size:9px;color:#fffb;letter-spacing:.04em}
+.cs-speaker-indicator{position:absolute;top:5%;z-index:2;display:flex;align-items:center;gap:8px;border:1px solid #ffffff65;background:#15345ce8;color:white;backdrop-filter:blur(10px);border-radius:30px;padding:8px 12px;font-size:11px;box-shadow:0 4px 20px #0001;opacity:0;transform:translateY(5px);transition:opacity .2s,transform .2s}
+.cs-indicator-host{left:4%}.cs-indicator-guest{right:4%;background:#214b32e8}
+[data-phase="speaking"][data-speaker="host"] .cs-indicator-host,[data-phase="speaking"][data-speaker="guest"] .cs-indicator-guest{opacity:1;transform:translateY(0)}
+.cs-waveform{display:flex;align-items:center;gap:2px;height:16px}.cs-waveform i{display:block;width:2px;height:5px;border-radius:2px;background:currentColor}.cs-waveform i:nth-child(2n){height:11px}.cs-waveform i:nth-child(3){height:15px}
+[data-playing="true"] .cs-waveform i{animation:cs-voice .65s ease-in-out infinite alternate}.cs-waveform i:nth-child(2n){animation-delay:-.2s}.cs-waveform i:nth-child(3){animation-delay:-.4s}
+.cs-private-cue,.cs-gesture-cue{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;opacity:0;transition:opacity .25s;color:#fff;font-size:11px;font-weight:600;text-shadow:0 1px 4px #0005;pointer-events:none}
+.cs-private-cue{left:18%;top:23%;flex-direction:column;align-items:flex-start}.cs-gesture-cue{left:28%;top:57%;flex-direction:column}
+.cs-private-cue>span:last-child,.cs-gesture-cue>span:last-child{padding:6px 9px;background:#1d4e9ce8;border:1px solid #ffffff70;border-radius:8px;box-shadow:0 3px 15px #0002}
+.cs-cue-ring{width:30px;height:30px;border:2px solid #d6e6ff;border-radius:50%;box-shadow:0 0 0 6px #5796ff55,0 0 30px #eaf2ff80}
+[data-phase="listening"] .cs-private-cue,[data-phase="selecting"] .cs-gesture-cue{opacity:1}
+[data-playing="true"] .cs-cue-ring{animation:cs-ring 1.2s ease-out infinite}
+.cs-story{display:grid;grid-template-columns:1fr auto;gap:4px 20px;padding:18px 0;border-bottom:1px solid #ded6c7;align-items:center}
+.cs-step{display:flex;gap:8px;align-items:center;color:#6e6962;font-size:11px;font-weight:600;grid-column:2;grid-row:1}
+.cs-status-dot{height:6px;width:6px;flex-shrink:0;border-radius:50%;background:#82918a}
+.cs-title{font-family:RobotoHeavy,-apple-system,sans-serif;font-size:22px;letter-spacing:-.035em;line-height:1.15;margin:0}
+.cs-description,.cs-detail{display:none}
+[data-phase="waiting"] .cs-status-dot{background:#bd8e39}
+[data-phase="listening"] .cs-status-dot,[data-phase="selecting"] .cs-status-dot,[data-phase="speaking"][data-speaker="host"] .cs-status-dot{background:#245dce}
+[data-phase="speaking"][data-speaker="guest"] .cs-status-dot{background:#207649}
+@keyframes cs-voice{from{transform:scaleY(.4)}to{transform:scaleY(1)}}
+@keyframes cs-ring{from{box-shadow:0 0 0 0 #5796ff70}to{box-shadow:0 0 0 15px #5796ff00}}
+@media(max-width:650px){
+ .experience-player .conversation-scene{padding:14px 12px 0}
+ .cs-bubble{width:100%;min-height:148px;padding:16px 17px;margin-bottom:20px;border-radius:16px}
+ [data-speaker="host"] .cs-bubble{border-radius:16px}
+ .cs-bubble-source{font-size:17px}.cs-bubble-translation{font-size:13px}
+ .cs-cinema{border-radius:14px;aspect-ratio:1/1}
+ .cs-illustration{object-fit:cover;object-position:49% center}
+ .cs-wearer-labels{bottom:27px;font-size:14px;left:4%;right:4%;gap:8px}
+ .cs-wearer-labels small{font-size:9px}.cs-wearer-labels>span{padding-left:7px}.cs-wearer-labels>span:last-child{padding-right:7px}
+ .cs-speaker-indicator{font-size:10px;padding:6px 8px;gap:5px;top:4%}
+ .cs-private-cue{left:5%;top:23%}.cs-gesture-cue{left:18%;top:57%}
+ .cs-private-cue,.cs-gesture-cue{font-size:9px}.cs-cue-ring{width:23px;height:23px}
+ .cs-story{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px 0}.cs-step{order:-1;font-size:10px}.cs-title{font-size:20px}
+}
+@media(prefers-reduced-motion:reduce){.conversation-scene *{animation:none!important;transition:none!important}}
+/* Simple drawn characters; optics follow the supplied hardware references. */
+.cs-cinema{aspect-ratio:760/440;background:#faf7ef;box-shadow:none;border:1px solid #e8e0d3}
+.cs-cinema:after{display:none}
+.cs-flat-scene{height:auto;padding-bottom:40px}
+.cs-wearer-labels{bottom:24px;color:#315d9a;text-shadow:none;left:19%;right:18%;font-size:14px}
+.cs-wearer-labels>span{border:0;padding:0;text-align:center}.cs-wearer-labels>span:last-child{border:0;padding:0;color:#417047;text-align:center}
+.cs-wearer-labels small{color:#726b60;font-size:10px}.cs-art-caption{color:#8a8175;font-size:8px;bottom:7px}
+.cs-person{transform-box:fill-box;transform-origin:center bottom}
+.cs-mouth{transform-box:fill-box;transform-origin:center}
+[data-playing="true"][data-phase="speaking"][data-speaker="host"] .cs-host-mouth,[data-playing="true"][data-phase="speaking"][data-speaker="guest"] .cs-guest-mouth{animation:cs-talk .35s ease-in-out infinite alternate}
+[data-playing="true"][data-phase="speaking"][data-speaker="host"] .cs-person-host,[data-playing="true"][data-phase="speaking"][data-speaker="guest"] .cs-person-guest{animation:cs-lean 2s ease-in-out infinite}
+.cs-pinch-hand{transform-box:fill-box;transform-origin:center}
+[data-playing="true"][data-phase="selecting"] .cs-pinch-hand{animation:cs-pinch .7s ease-in-out infinite alternate}
+.cs-ear-waves{opacity:0}[data-phase="listening"] .cs-ear-waves{opacity:1}
+[data-playing="true"][data-phase="listening"] .cs-ear-waves{animation:cs-voice .8s ease-in-out infinite alternate}
+.cs-private-cue{left:16%;top:27%}.cs-gesture-cue{left:31%;top:62%}
+@keyframes cs-talk{from{transform:scaleY(.6)}to{transform:scaleY(1.7)}}
+@keyframes cs-lean{0%,100%{transform:rotate(0)}50%{transform:rotate(.7deg)}}
+@keyframes cs-pinch{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+@media(max-width:650px){.cs-cinema{aspect-ratio:760/570}.cs-flat-scene{width:120%;max-width:none;margin-left:-10%;padding-bottom:0}.cs-wearer-labels{left:12%;right:10%;bottom:23px;font-size:12px}.cs-wearer-labels small{font-size:9px}.cs-private-cue{left:9%;top:29%}.cs-gesture-cue{left:27%;top:62%}}
+@media(prefers-reduced-motion:reduce){.conversation-scene *{animation:none!important;transition:none!important}}

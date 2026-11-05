@@ -1,0 +1,10 @@
+#include "Shared.xcconfig"
+
+// Debug installs prefer the attended development service from the ignored .budget/device-service.json
+// (copied in by the "Provision attended development service" build phase).
+BORDERLESS_RELAY_ADDRESS =
+BORDERLESS_RELAY_CLIENT_KEY =
+
+// A device run against the hosted relay (no .budget/device-service.json in this checkout) uses the
+// same ignored Relay.local.xcconfig the beta lane writes.
+#include? "Relay.local.xcconfig"

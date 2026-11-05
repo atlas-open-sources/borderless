@@ -1,0 +1,16 @@
+#include "Shared.xcconfig"
+
+// The hosted relay every TestFlight/App Store build uses by default. The client key ships inside the
+// app, so it is not a secret: it only turns away drive-by scanners. The relay's per-session, per-install,
+// per-IP and daily spend limits are the protection (conversation_relay/hosted.py). The values come from
+// the git-ignored Relay.local.xcconfig, which `fastlane ios beta` writes from the relay's hostname and
+// .budget/release-relay-token; without it Live asks for a service address.
+BORDERLESS_RELAY_ADDRESS =
+BORDERLESS_RELAY_CLIENT_KEY =
+#include? "Relay.local.xcconfig"
+
+// Registered Meta app id, client token and HTTPS app link for testers outside Developer Mode.
+#include? "Meta.local.xcconfig"
+
+// Debug-only recorded speech for device runs (WAVFileCapture); never in a store build.
+EXCLUDED_SOURCE_FILE_NAMES = $(inherited) debug-speech-*.wav

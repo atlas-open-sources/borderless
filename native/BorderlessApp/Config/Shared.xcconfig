@@ -1,0 +1,9 @@
+// Shared by Debug and Release. Values that differ per configuration live in Debug/Release.xcconfig.
+
+// Meta Wearables Device Access Toolkit. Project "Borderless" (app 1142963328181308) in the Wearables
+// Developer Center (our organization). MetaAppID 0 is Developer Mode (as in Ghost Runner's Debug);
+// Release.xcconfig takes the registered values from the git-ignored Meta.local.xcconfig.
+META_APP_ID = 0
+META_CLIENT_TOKEN =
+// "//" starts a comment in an xcconfig; $() keeps the scheme's slashes.
+BORDERLESS_APP_LINK = borderless:/$()/

@@ -1,0 +1,14 @@
+{
+  "originHash" : "0257bfb135e5da7e3dcd0ff1aa1c66147baccfe8ad2ec2ccff00eb7449290bce",
+  "pins" : [
+    {
+      "identity" : "even-companion",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/local-ai-cat/even-companion.git",
+      "state" : {
+        "revision" : "527efbf4cb9c30c510640c919415125d98eb7cf5"
+      }
+    }
+  ],
+  "version" : 3
+}

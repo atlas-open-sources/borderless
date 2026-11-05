@@ -1,0 +1,41 @@
+{
+  "evidence": "live text API; synthetic ASR input; no microphone",
+  "turns": [
+    {
+      "id": 1,
+      "revision": 1,
+      "speaker": "guest",
+      "source": "Hola, ¿cómo estás?",
+      "status": "ready",
+      "translation": "Hello, how are you?",
+      "replies": [
+        {
+          "text": "¡Hola! Estoy bien, gracias.",
+          "gloss": "Hi! I'm fine, thank you.",
+          "pronunciation": "OH-lah! ehs-TOY bee-EN, grah-SYAHS."
+        },
+        {
+          "text": "Muy bien, ¿y tú?",
+          "gloss": "Very well, and you?",
+          "pronunciation": "mwee bee-EN, ee TOO?"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "revision": 1,
+      "speaker": "host",
+      "source": "I am well, thank you. And you?",
+      "status": "ready",
+      "translation": "Estoy bien, gracias. ¿Y tú?",
+      "replies": []
+    }
+  ],
+  "local_project_ledger": {
+    "cap_usd": 20.0,
+    "committed_usd": 0.04282975,
+    "remaining_usd": 19.95717025,
+    "pending": 0,
+    "halted": false
+  }
+}

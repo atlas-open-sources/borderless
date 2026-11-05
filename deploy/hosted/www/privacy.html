@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Borderless privacy</title>
+<style>
+  body { font: 17px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; max-width: 42rem;
+         margin: 3rem auto; padding: 0 1.25rem; color: #1d1d1f; background: #fff; }
+  h1 { font-size: 1.8rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  .muted { color: #6e6e73; }
+  @media (prefers-color-scheme: dark) { body { color: #f5f5f7; background: #000; } .muted { color: #a1a1a6; } }
+</style>
+</head>
+<body>
+<h1>Borderless privacy</h1>
+<p class="muted">Last updated 3 November 2026</p>
+
+<p>Borderless helps two people talk across languages, with the translation shown on the phone and on smart glasses. This page says what happens to your speech.</p>
+
+<h2>Demo mode</h2>
+<p>Demo mode plays recorded sample conversations. It does not use the microphone and sends nothing to our service.</p>
+
+<h2>Live mode</h2>
+<ul>
+  <li>Live mode starts only after both people agree on screen. The microphone runs only while a live capture is on, and each capture stops after about a minute.</li>
+  <li>While a capture is on, the app streams the audio to our relay service. The relay passes it to Meta's speech recognition and translation APIs and sends the transcript and translation back to the app.</li>
+  <li>The relay does not store audio, transcripts or translations. It does not log what was said.</li>
+  <li>To keep the service affordable and fair, the relay keeps counters: how many sessions and how many seconds a device or network address used recently. It stores these as one-way hashed identifiers, not as your IP address or device identifier, and deletes them after two days.</li>
+  <li>Meta processes the audio and text under its own terms and privacy policy. For translation requests the relay asks Meta not to store them.</li>
+</ul>
+
+<h2>On your phone</h2>
+<p>Conversation text is kept only on your phone. If you save a conversation, it stays on the phone in protected storage and is excluded from backups.</p>
+
+<h2>Glasses</h2>
+<p>When you connect Meta Ray-Ban Display or Even Realities G2 glasses, the app sends the translated text to them to display.</p>
+
+<h2>No accounts, no ads</h2>
+<p>Borderless has no user accounts, no advertising and no tracking.</p>
+
+<h2>Contact</h2>
+<p>Questions: open an issue on the project's public repository, or use the contact details on the App Store listing.</p>
+</body>
+</html>

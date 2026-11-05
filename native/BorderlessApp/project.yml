@@ -1,0 +1,128 @@
+name: Borderless
+options:
+  bundleIdPrefix: ai.atlascodes
+  deploymentTarget:
+    iOS: '18.0'
+packages:
+  BorderlessKit:
+    path: ../BorderlessKit
+  BorderlessAudio:
+    path: ../BorderlessAudio
+  MetaDATAdapter:
+    path: ../MetaDATAdapter
+  BorderlessG2:
+    path: ../BorderlessG2
+  # Prior work (MIT, not yet public), pinned by revision; see the README, "Display kits".
+  even-companion:
+    url: https://github.com/local-ai-cat/even-companion.git
+    revision: 527efbf4cb9c30c510640c919415125d98eb7cf5
+configFiles:
+  Debug: Config/Debug.xcconfig
+  Release: Config/Release.xcconfig
+settings:
+  base:
+    SWIFT_VERSION: '6.0'
+    # A new App Store Connect app: 1.0 (1). Build numbers rise per upload (fastlane beta).
+    MARKETING_VERSION: '1.0'
+    CURRENT_PROJECT_VERSION: '1'
+    DEVELOPMENT_TEAM: '599WAZ6282'
+    CODE_SIGN_STYLE: Automatic
+    GENERATE_INFOPLIST_FILE: YES
+    INFOPLIST_KEY_UILaunchScreen_Generation: YES
+    INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+    # iPhone only: no iPad review surface or iPad screenshots for the first release.
+    TARGETED_DEVICE_FAMILY: '1'
+targets:
+  Borderless:
+    type: application
+    platform: iOS
+    sources: [Sources, Resources]
+    postBuildScripts:
+      - name: Provision attended development service
+        script: |
+          destination="${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BorderlessService.json"
+          source="${SRCROOT}/../../.budget/device-service.json"
+          if [ "${CONFIGURATION}" = "Debug" ] && [ -s "$source" ]; then
+            cp "$source" "$destination"
+          else
+            rm -f "$destination"
+          fi
+        basedOnDependencyAnalysis: false
+    # Universal links for Meta's glasses callback; the relay box serves the AASA for this host.
+    entitlements:
+      path: Config/Borderless.entitlements
+      properties:
+        com.apple.developer.associated-domains: [applinks:borderless.3-214-86-61.sslip.io]
+    info:
+      path: Info.plist
+      properties:
+        CFBundleDisplayName: Borderless
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        CFBundleURLTypes:
+          - CFBundleURLName: ai.atlascodes.borderless
+            CFBundleURLSchemes: [borderless]
+        MWDAT:
+          AppLinkURLScheme: '$(BORDERLESS_APP_LINK)'
+          MetaAppID: '$(META_APP_ID)'
+          ClientToken: '$(META_CLIENT_TOKEN)'
+          TeamID: '$(DEVELOPMENT_TEAM)'
+        BorderlessRelayAddress: '$(BORDERLESS_RELAY_ADDRESS)'
+        BorderlessRelayClientKey: '$(BORDERLESS_RELAY_CLIENT_KEY)'
+        ITSAppUsesNonExemptEncryption: false
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait, UIInterfaceOrientationLandscapeLeft, UIInterfaceOrientationLandscapeRight]
+        # Without this, App Store upload rejects the orientations (iPad multitasking wants all four).
+        UIRequiresFullScreen: true
+        UIBackgroundModes: [bluetooth-central]
+        NSMicrophoneUsageDescription: Borderless listens only while you run a live conversation, to transcribe and translate what is said.
+        NSBluetoothAlwaysUsageDescription: Borderless connects to your Meta Ray-Ban Display or Even G2 glasses over Bluetooth to show the translated conversation.
+
+    dependencies:
+      - package: BorderlessKit
+        product: BorderlessCore
+      - package: BorderlessKit
+        product: BorderlessDisplay
+      - package: BorderlessKit
+        product: BorderlessRelay
+      - package: BorderlessAudio
+      - package: MetaDATAdapter
+      - package: BorderlessG2
+      - package: even-companion
+        product: GlassesSceneKit
+    settings:
+      base:
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        PRODUCT_BUNDLE_IDENTIFIER: ai.atlascodes.borderless
+        INFOPLIST_KEY_CFBundleDisplayName: Borderless
+      configs:
+        # Store exports sign manually (fastlane/Fastfile explains why); app target only, so SwiftPM
+        # resource bundles never see a provisioning profile.
+        # Device Debug builds too: Xcode on the M5 has no Apple account, so automatic signing cannot
+        # mint a profile for this bundle id; simulator builds stay ad hoc.
+        Debug:
+          CODE_SIGN_STYLE[sdk=iphoneos*]: Manual
+          CODE_SIGN_IDENTITY[sdk=iphoneos*]: DA8E337C80501DA38C71C87ED76A210D7FD7DF38
+          PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]: Borderless Development ai.atlascodes.borderless 20261103
+        Release:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: 7ECA7B2376279A47F901F145F94BEF199441350E
+          PROVISIONING_PROFILE_SPECIFIER: Borderless AppStore ai.atlascodes.borderless 20261103
+  BorderlessTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [Tests]
+    dependencies:
+      - target: Borderless
+  BorderlessUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    dependencies:
+      - target: Borderless
+schemes:
+  Borderless:
+    build:
+      targets:
+        Borderless: all
+    test:
+      targets: [BorderlessTests, BorderlessUITests]
